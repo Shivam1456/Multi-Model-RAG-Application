@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-blue-800 to-purple-900 text-white">
+  <div class="absolute inset-0">
+    <svg class="absolute left-0 top-0 h-full w-full" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="rgba(80, 70, 230, 0.1)"></stop>
+          <stop offset="100%" stop-color="rgba(137, 70, 230, 0.05)"></stop>
+        </linearGradient>
+      </defs>
+      <path fill="url(#bg-gradient)" d="M0,0 C0,0 0,200 0,200 C114.35714285714289,172.53571428571428 228.71428571428578,145.07142857142858 351,149 C473.2857142857142,152.92857142857142 603.4999999999999,188.25 713,198 C822.5000000000001,207.75 911.2857142857142,191.92857142857142 1029,184 C1146.7142857142858,176.07142857142858 1293.3571428571427,176.03571428571428 1440,176 C1440,176 1440,800 1440,800 L0,800 Z"></path>
+      <path fill="url(#bg-gradient)" d="M0,0 C0,0 0,400 0,400 C143.75,375.42857142857144 287.5,350.85714285714283 397,352 C506.5,353.14285714285717 581.7499999999999,380 687,397 C792.2500000000001,414 927.5,421.14285714285717 1057,421 C1186.5,420.85714285714283 1310.25,413.42857142857144 1434,406 C1434,406 1434,800 1434,800 L0,800 Z" opacity="0.4"></path>
+      <path fill="url(#bg-gradient)" d="M0,0 C0,0 0,600 0,600 C122.60714285714286,586.9642857142857 245.21428571428572,573.9285714285714 355,567 C464.7857142857143,560.0714285714286 561.7499999999999,559.25 681,566 C800.2500000000001,572.75 941.7857142857142,587.0714285714286 1066,591 C1190.2142857142858,594.9285714285714 1297.107142857143,588.4642857142857 1404,582 C1404,582 1404,800 1404,800 L0,800 Z" opacity="0.35"></path>
+    </svg>
+  </div>
+  
+  <div class="container mx-auto px-6 py-16 relative z-10">
+    <div class="flex flex-col items-center justify-center text-center mb-12">
+      <div class="inline-block p-3 rounded-full bg-white/10 backdrop-blur-sm mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+        Experience <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-300">Gemini AI</span>
+      </h1>
+      <p class="text-xl text-blue-100 max-w-2xl">Discover powerful AI capabilities that transform how you interact with information</p>
+    </div>
+  </div>
+  
+  <div class="absolute bottom-0 left-0 w-full">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" class="w-full h-auto">
+      <path fill="#ffffff" fill-opacity="1" d="M0,128L48,133.3C96,139,192,149,288,138.7C384,128,480,96,576,90.7C672,85,768,107,864,112C960,117,1056,107,1152,90.7C1248,75,1344,53,1392,42.7L1440,32L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
+    </svg>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container mx-auto px-6 pb-16 -mt-6 relative z-20">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Card 1: Start Chatting -->
+    <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group">
+      <div class="h-36 bg-gradient-to-r from-blue-600 to-indigo-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full"></div>
+        <div class="absolute -top-6 -left-6 w-24 h-24 bg-white/10 rounded-full"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+        </div>
+      </div>
+      <div class="p-8">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+              <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-800 ml-3">Start Chatting</h2>
+        </div>
+        <p class="text-gray-600 mb-6">Engage in natural conversation with our advanced AI assistant. Get informative responses, creative ideas, and helpful solutions to your questions.</p>
+        <a href="/gemini_chatbot/gemini_chatbot_generate" 
+           class="group inline-flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition duration-300 text-center shadow-md hover:shadow-lg">
+          Start Conversation
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2: Q&A with PDF -->
+    <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group">
+      <div class="h-36 bg-gradient-to-r from-purple-600 to-pink-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full"></div>
+        <div class="absolute -top-6 -left-6 w-24 h-24 bg-white/10 rounded-full"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
+      </div>
+      <div class="p-8">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-purple-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-800 ml-3">Q&A with PDF</h2>
+        </div>
+        <p class="text-gray-600 mb-6">Upload documents and instantly extract insights. Ask questions about your PDFs and receive precise answers based on the content.</p>
+        <a href="/gemini_pdf_ques_answer/gemini_pdf_ques_answer_generate" 
+           class="group inline-flex items-center justify-center w-full px-6 py-3 bg-purple-600 text-white font-medium rounded-xl hover:bg-purple-700 transition duration-300 text-center shadow-md hover:shadow-lg">
+          Upload Documents
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3: Q&A with Images -->
+    <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group">
+      <div class="h-36 bg-gradient-to-r from-teal-500 to-green-500 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full"></div>
+        <div class="absolute -top-6 -left-6 w-24 h-24 bg-white/10 rounded-full"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+      </div>
+      <div class="p-8">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-green-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-800 ml-3">Q&A with Images</h2>
+        </div>
+        <p class="text-gray-600 mb-6">Analyze images intelligently with OCR technology. Extract text from pictures and get detailed information about visual content.</p>
+        <a href="/gemini_image_text_ext_qa/gemini_image_text_ext_qa_generate" 
+           class="group inline-flex items-center justify-center w-full px-6 py-3 bg-green-600 text-white font-medium rounded-xl hover:bg-green-700 transition duration-300 text-center shadow-md hover:shadow-lg">
+          Analyze Images
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.422L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 4: Q&A with Scraped URL -->
+    <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group">
+      <div class="h-36 bg-gradient-to-r from-yellow-500 to-orange-500 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full"></div>
+        <div class="absolute -top-6 -left-6 w-24 h-24 bg-white/10 rounded-full"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+          </svg>
+        </div>
+      </div>
+      <div class="p-8">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-yellow-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.522 2H8.552c.098 1.405.387 2.636.771 3.53.238.558.498.947.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.235.498-.623.737-1.182.384-.894.673-2.125.771-3.53zm1.946 0c.089 1.546.383 2.97.837 4.118A6.004 6.004 0 0115.917 11h-1.946z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-800 ml-3">Q&A with Scraped URL</h2>
+        </div>
+        <p class="text-gray-600 mb-6">Enter a URL, scrape its text content, and let Gemini AI answer questions based on the extracted text.</p>
+        <a href="/gemini_url_scrap_qa/gemini_url_scrap_qa_generate" 
+           class="group inline-flex items-center justify-center w-full px-6 py-3 bg-yellow-600 text-white font-medium rounded-xl hover:bg-yellow-700 transition duration-300 text-center shadow-md hover:shadow-lg">
+          Explore
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="mt-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900">Why Choose Gemini AI?</h2>
+      <div class="mt-3 w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Feature 1 -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+        <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Lightning Fast</h3>
+        <p class="text-gray-600">Get instant responses powered by cutting-edge AI technology designed for speed and accuracy.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+        <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Secure & Private</h3>
+        <p class="text-gray-600">Your data is protected with enterprise-grade security and stringent privacy controls.</p>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+        <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Multimodal Analysis</h3>
+        <p class="text-gray-600">Process text, images, and documents with a single unified AI system designed for versatility.</p>
+      </div>
+      
+      <!-- Feature 4 -->
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+        <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Highly Customizable</h3>
+        <p class="text-gray-600">Tailor AI interactions to your specific needs with flexible configuration options.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CTA Section -->
+  <div class="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl shadow-xl overflow-hidden">
+    <div class="px-8 py-12 md:px-12 md:py-16 flex flex-col md:flex-row items-center justify-between">
+      <div class="mb-8 md:mb-0 text-center md:text-left">
+        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to experience Gemini AI?</h3>
+        <p class="text-blue-100 text-lg max-w-lg">Discover how our AI solutions can transform your workflow and boost productivity.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/gemini_chatbot/gemini_chatbot_generate" class="px-8 py-4 bg-white text-blue-700 rounded-xl font-semibold shadow-md hover:shadow-lg transition duration-300 text-center whitespace-nowrap">
+          Get Started
+        </a>
+        <a href="#" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-semibold hover:bg-white/10 transition duration-300 text-center whitespace-nowrap">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,427 @@
+{% extends "base.html" %} {% block content %}
+<div
+  class="container mx-auto mt-10 max-w-5xl p-8 bg-gradient-to-br from-gray-50 to-white shadow-xl rounded-xl"
+>
+  <!-- Header with Back Button -->
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-indigo-800 flex items-center">
+      <svg
+        class="w-8 h-8 mr-3 text-indigo-600"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M9 12H15"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M12 9V15"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      Gemini AI Chatbot
+    </h1>
+    <a
+      href="/"
+      class="px-4 py-2 bg-white text-indigo-600 rounded-lg shadow-md hover:bg-indigo-50 transition-all duration-300 flex items-center font-medium"
+    >
+      <svg
+        class="w-4 h-4 mr-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"
+        ></path>
+      </svg>
+      Back to Home
+    </a>
+  </div>
+
+  <!-- Error Message -->
+  {% if error %}
+  <div
+    class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg mb-6 animate-fade-in"
+    role="alert"
+  >
+    <div class="flex items-center">
+      <svg
+        class="w-6 h-6 mr-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+      <span class="font-medium">{{ error }}</span>
+    </div>
+    <button
+      class="float-right text-red-700 hover:text-red-900"
+      onclick="this.parentElement.style.display='none';"
+    >
+      ✕
+    </button>
+  </div>
+  {% endif %}
+
+  <!-- Query Form -->
+  <form method="POST" class="mb-8" id="chatbot-form">
+    <div class="flex flex-col md:flex-row gap-4">
+      <div class="relative flex-grow">
+        <input
+          type="text"
+          name="query"
+          class="w-full p-4 pl-12 border-2 border-gray-200 rounded-xl text-gray-700 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none transition duration-200"
+          placeholder="What would you like to know?"
+          maxlength="{{ max_query_length|default(1000) }}"
+          required
+          aria-label="Enter your query"
+          {%
+          if
+          query
+          %}value="{{ query }}"
+          {%
+          endif
+          %}
+        />
+        <svg
+          class="absolute left-4 top-4 w-5 h-5 text-gray-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
+      </div>
+      <button
+        type="submit"
+        class="px-8 py-4 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center"
+        id="submit-btn"
+      >
+        <span>Ask Gemini</span>
+        <svg
+          class="ml-2 w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </form>
+
+  <!-- History Link -->
+  <div
+    class="mb-8 flex justify-between items-center bg-gray-50 p-4 rounded-lg shadow-sm"
+  >
+    <div class="flex items-center gap-4">
+      <svg
+        class="w-5 h-5 mr-2 text-indigo-500"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+      <a
+        href="/gemini_chatbot/history"
+        class="text-indigo-600 hover:text-indigo-800 font-medium"
+        >View All Chats</a
+      >
+      <a
+        href="/gemini_chatbot/recent_chats"
+        class="text-indigo-600 hover:text-indigo-800 font-medium"
+        >View Recent Chats</a
+      >
+    </div>
+    {% if history_count %}
+    <span
+      class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full"
+      >{{ history_count }} entries</span
+    >
+    {% endif %}
+  </div>
+
+  <!-- Response Section -->
+  {% if query %}
+  <div
+    class="bg-white p-8 rounded-xl shadow-lg animate-fade-in border-l-4 border-indigo-500 mb-6"
+  >
+    <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+      <svg
+        class="w-5 h-5 mr-2 text-indigo-500"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+        ></path>
+      </svg>
+      <span class="text-indigo-700">You asked:</span>
+    </h2>
+    <p class="text-gray-700 mb-6 ml-7 italic">{{ query }}</p>
+
+    <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+      <svg
+        class="w-5 h-5 mr-2 text-green-500"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+        ></path>
+      </svg>
+      <span class="text-green-700">Gemini's response:</span>
+    </h2>
+    <div class="mt-3 text-gray-700 prose prose-indigo max-w-none ml-7">
+      {{ explanation|safe }}
+    </div>
+
+    {% if table_html %}
+    <div
+      class="mt-6 overflow-x-auto bg-gray-50 p-4 rounded-lg border border-gray-200"
+    >
+      {{ table_html|safe }}
+    </div>
+    {% endif %} {% if code_html %}
+    <div
+      class="mt-6 bg-gray-50 rounded-lg border border-gray-200 overflow-hidden"
+    >
+      <div
+        class="flex justify-between items-center p-3 bg-gray-100 border-b border-gray-200"
+      >
+        <button
+          class="text-gray-700 hover:text-indigo-700 font-medium flex items-center toggle-code-btn"
+          data-target="current-code-content"
+        >
+          <svg
+            class="w-4 h-4 mr-2 transform transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+          Code Snippet ({{ code_language|capitalize }})
+        </button>
+        <button
+          class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded-md text-sm copy-code-btn relative flex items-center"
+          data-code-id="current-code-content"
+          title="Copy to clipboard"
+        >
+          <svg
+            class="w-4 h-4 mr-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            ></path>
+          </svg>
+          Copy
+          <span
+            class="absolute hidden bg-gray-800 text-white text-xs rounded py-1 px-2 right-0 top-0 transform -translate-y-full"
+            >Copied!</span
+          >
+        </button>
+      </div>
+      <div
+        id="current-code-content"
+        class="code-content bg-gray-900 p-4 overflow-x-auto hidden"
+      >
+        {{ code_html|safe }}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% else %}
+  <div
+    class="bg-indigo-50 border border-indigo-100 p-6 rounded-xl mt-8 text-center"
+  >
+    <svg
+      class="w-16 h-16 mx-auto text-indigo-400 mb-4"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+      ></path>
+    </svg>
+    <h3 class="text-xl font-medium text-indigo-700 mb-2">
+      Ask Gemini Anything
+    </h3>
+    <p class="text-gray-600 max-w-md mx-auto">
+      Type your question above and Gemini will provide you with an answer. Try
+      asking about facts, concepts, or creative ideas!
+    </p>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Custom Styles and Scripts -->
+{% block scripts %}
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  pre,
+  code {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code-content.hidden {
+    display: none;
+  }
+  .toggle-code-btn svg.rotate-180 {
+    transform: rotate(180deg);
+  }
+  .copy-code-btn:hover span {
+    display: block;
+  }
+  .copy-code-btn.copied span {
+    display: block;
+  }
+  .prose pre {
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #e2e8f0;
+  }
+  .prose table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .prose th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+  }
+  .prose th,
+  .prose td {
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  .prose tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+</style>
+<script>
+  document
+    .getElementById("chatbot-form")
+    .addEventListener("submit", function (e) {
+      const submitBtn = document.getElementById("submit-btn");
+      submitBtn.disabled = true;
+      submitBtn.innerHTML =
+        '<svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...';
+    });
+
+  // Toggle code visibility
+  document.querySelectorAll(".toggle-code-btn").forEach((button) => {
+    button.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-target");
+      const content = document.getElementById(targetId);
+      const icon = this.querySelector("svg");
+      content.classList.toggle("hidden");
+      icon.classList.toggle("rotate-180");
+    });
+  });
+
+  // Copy code functionality
+  document.querySelectorAll(".copy-code-btn").forEach((button) => {
+    button.addEventListener("click", function () {
+      const codeId = this.getAttribute("data-code-id");
+      const codeElement = document.getElementById(codeId).querySelector("pre");
+      const codeText = codeElement ? codeElement.textContent : "";
+      navigator.clipboard.writeText(codeText).then(() => {
+        this.classList.add("copied");
+        this.querySelector("span").textContent = "Copied!";
+        setTimeout(() => {
+          this.classList.remove("copied");
+          this.querySelector("span").textContent = "Copied!";
+        }, 2000);
+      });
+    });
+  });
+</script>
+{% endblock %} {% endblock %}

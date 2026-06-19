@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto mt-10 max-w-5xl p-6 bg-gray-50 shadow-lg rounded-lg">
+
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Gemini AI Use Cases</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Start Chatting -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <img src="https://via.placeholder.com/400x200?text=Start+Chatting" alt="Start Chatting" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-bold text-gray-800">Start Chatting</h2>
+                <p class="text-gray-600 mt-2">Use the Gemini AI Chatbot to generate AI-driven responses to your queries.</p>
+                <a href="/gemini_chatbot/gemini_chatbot_generate" 
+                   class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition duration-300">
+                    Explore
+                </a>
+            </div>
+        </div>
+
+        <!-- Card 2: Q&A with PDF -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <img src="https://via.placeholder.com/400x200?text=Q%26A+with+PDF" alt="Q&A with PDF" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-bold text-gray-800">Q&A with PDF</h2>
+                <p class="text-gray-600 mt-2">Upload a PDF and let the Gemini AI answer questions based on its content.</p>
+                <a href="/gemini_pdf_ques_answer/gemini_pdf_ques_answer_generate" 
+                   class="mt-4 inline-block px-4 py-2 bg-gray-600 text-white text-sm font-medium rounded-md hover:bg-gray-700 transition duration-300">
+                    Explore
+                </a>
+            </div>
+        </div>
+
+        <!-- Card 3: Q&A with Images -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <img src="https://via.placeholder.com/400x200?text=Q%26A+with+Images" alt="Q&A with Images" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-bold text-gray-800">Q&A with Images</h2>
+                <p class="text-gray-600 mt-2">Upload an image, extract text using OCR, and let Gemini AI answer questions based on the extracted content.</p>
+                <a href="/gemini_image_text_ext_qa/gemini_image_text_ext_qa_generate" 
+                   class="mt-4 inline-block px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 transition duration-300">
+                    Explore
+                </a>
+            </div>
+        </div>
+
+        <!-- Card 4: Q&A with Scraped URL -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <img src="https://via.placeholder.com/400x200?text=Q%26A+with+URL" alt="Q&A with URL" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-bold text-gray-800">Q&A with Scraped URL</h2>
+                <p class="text-gray-600 mt-2">Enter a URL, scrape its text content, and let Gemini AI answer questions based on the extracted text.</p>
+                <a href="/gemini_url_scrap_qa/gemini_url_scrap_qa_generate" 
+                   class="mt-4 inline-block px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-md hover:bg-purple-700 transition duration-300">
+                    Explore
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

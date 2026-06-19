@@ -1,0 +1,86 @@
+# Byte-compiled / optimized / DLL files
+
+**pycache**/
+\*.py\[cod]
+\*\$py.class
+
+# Virtual environment
+
+venv/
+env/
+
+# Environment variables and credentials
+
+*.env
+.env.*
+!.env.example
+config.py
+
+.env
+
+/cache
+
+# Logs
+
+logs/
+\*.log
+\*.out
+\*.err
+nohup.out
+
+# Database files
+
+\*.sqlite3
+\*.db
+instance/
+
+# Cache and temporary files
+
+\*.cache
+\*.pid
+\*.swp
+\*.swo
+\*.swn
+\*.swo
+\*.bak
+
+# Flask and Gunicorn specific
+
+\*.pyc
+\*.pyo
+\*.pyd
+\*.egg-info/
+dist/
+build/
+\*.egg
+
+# Jupyter Notebook checkpoints
+
+.ipynb\_checkpoints/
+
+# VS Code settings
+
+.vscode/
+terminals/
+
+# PyCharm settings
+
+.idea/
+
+# macOS system files
+
+.DS\_Store
+
+# Docker related
+
+docker-compose.override.yml
+
+# Node.js dependencies (if applicable)
+
+node\_modules/
+
+# Static assets (optional, if generated)
+
+staticfiles/
+
+\--git pr cache folder ya cache nhi jana cahiye
