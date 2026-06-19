@@ -4,7 +4,9 @@
 Production URL: https://multiple-model-rag-usecases.vercel.app
 
 
-Vercel Project Dashboard: multiple-model-rag-usecases on Vercel
+Vercel Project Dashboard: https://multiple-model-rag-usecases.vercel.app/
+
+multiple-model-rag-usecases-7u8pf6g97.vercel.app
 
 
 
